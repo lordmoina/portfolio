@@ -7,7 +7,7 @@ export async function getContent(): Promise<Content> {
     const { list } = await import("@vercel/blob");
     const { blobs } = await list({ prefix: CONTENT_BLOB });
     if (blobs.length > 0) {
-      const res = await fetch(blobs[0].url, { cache: "no-store" });
+      const res = await fetch(`${blobs[0].url}?t=${Date.now()}`, { cache: "no-store" });
       return res.json() as Promise<Content>;
     }
     // First deploy: seed blob from the bundled JSON
