@@ -1,0 +1,225 @@
+{
+  "nav": {
+    "logo": "Ricardo Mota",
+    "status": "AVAILABLE",
+    "showCvDownload": true
+  },
+  "hero": {
+    "label": "// AUTOMATION ENGINEER",
+    "title": "I build flows that think",
+    "subtitle": "Automation engineer & vibe coder",
+    "description": "Smart automations that connect systems, process data and work while you sleep. Specialized in AI integrations, e-commerce and CRM.",
+    "ctaPrimary": "View Projects",
+    "ctaSecondary": "Let's Talk"
+  },
+  "about": {
+    "pageTitle": "Ricardo Mota",
+    "bio": [
+      "I'm an automation engineer based in Braga, Portugal. I specialize in connecting tools that weren't designed to talk to each other — CRMs, e-commerce platforms, AI APIs, ERPs — and making them work as a single coherent system.",
+      "My stack is centered around n8n and less.tech for orchestration, with OpenAI and Claude models wired in wherever intelligence adds real value. On the business side I work mostly with HubSpot, Shopify, and Moloni — the tools that run real operations.",
+      "When I'm not building automations, I'm usually exploring what the latest models can actually do in production — not benchmarks, real workflows."
+    ],
+    "philosophy": [
+      {
+        "icon": "⚡",
+        "title": "Automate the boring",
+        "body": "If a human is doing it more than twice, a machine should be doing it. I look for repetitive friction and wire it away."
+      },
+      {
+        "icon": "◈",
+        "title": "AI as leverage",
+        "body": "Language models aren't magic — they're powerful tools that slot into real workflows. I build the pipes that make them useful."
+      },
+      {
+        "icon": "◉",
+        "title": "Ship, then refine",
+        "body": "A working automation beats a perfect spec every time. I ship fast, observe, and iterate based on real data."
+      },
+      {
+        "icon": "▣",
+        "title": "Systems thinking",
+        "body": "Every integration affects something downstream. I design flows that are observable, debuggable, and resilient to change."
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2026 Ricardo Mota // VIBE CODER",
+    "coordinates": "41.5454° N, 8.4265° W // BRAGA, PT"
+  },
+  "projects": [
+    {
+      "id": "1",
+      "title": "Automated Invoicing Pipeline",
+      "description": "End-to-end invoicing automation connecting Moloni and HubSpot. Automatically generates PDF invoices on deal close, syncs order data, and triggers delivery notifications — zero manual steps.",
+      "tags": [
+        "n8n",
+        "Moloni",
+        "HubSpot"
+      ],
+      "tagColor": "cyan",
+      "stack": [
+        "n8n",
+        "Moloni",
+        "HubSpot",
+        "Webhooks"
+      ],
+      "order": 0
+    },
+    {
+      "id": "2",
+      "title": "AI-Powered Lead Enrichment",
+      "description": "Automatic lead classification and scoring pipeline using GPT-4o via n8n. Enriches incoming leads with company data, scores intent, and routes high-value prospects to the right sales rep.",
+      "tags": [
+        "AI",
+        "n8n",
+        "CRM"
+      ],
+      "tagColor": "magenta",
+      "stack": [
+        "n8n",
+        "OpenAI",
+        "HubSpot",
+        "Google Sheets"
+      ],
+      "order": 1
+    },
+    {
+      "id": "3",
+      "title": "Database Cleaning with less.tech",
+      "description": "Data normalization and deduplication workflow for e-commerce and reporting. Standardizes product data, merges duplicate records, and outputs clean datasets ready for analytics.",
+      "tags": [
+        "less.tech",
+        "Shopify",
+        "Data"
+      ],
+      "tagColor": "purple",
+      "stack": [
+        "less.tech",
+        "Google Sheets",
+        "Shopify",
+        "Webhooks"
+      ],
+      "order": 2
+    },
+    {
+      "id": "4",
+      "title": "Shopify → CRM Sync",
+      "description": "Real-time synchronization between Shopify orders and HubSpot contacts. Creates and updates CRM records on every purchase, with lifecycle stage management and custom property mapping.",
+      "tags": [
+        "E-COMMERCE",
+        "CRM",
+        "SYNC"
+      ],
+      "tagColor": "cyan",
+      "stack": [
+        "n8n",
+        "Shopify",
+        "HubSpot"
+      ],
+      "order": 3
+    },
+    {
+      "id": "5",
+      "title": "AI Content Repurposing Flow",
+      "description": "Takes a single long-form article and automatically generates social posts, email sequences, and SEO meta tags using Claude. Publishes directly to connected platforms.",
+      "tags": [
+        "AI",
+        "CONTENT",
+        "CLAUDE"
+      ],
+      "tagColor": "magenta",
+      "stack": [
+        "n8n",
+        "Claude API",
+        "Notion",
+        "Webhooks"
+      ],
+      "order": 4
+    },
+    {
+      "id": "6",
+      "title": "Multi-Store Inventory Alert",
+      "description": "Monitors stock levels across multiple Shopify stores and fires Slack/email alerts when thresholds are breached. Auto-creates purchase orders in the ERP via webhook.",
+      "tags": [
+        "INVENTORY",
+        "ALERTS",
+        "MULTI-STORE"
+      ],
+      "tagColor": "purple",
+      "stack": [
+        "n8n",
+        "Shopify",
+        "Slack",
+        "Google Sheets"
+      ],
+      "order": 5
+    }
+  ],
+  "stack": [
+    {
+      "label": "n8n",
+      "icon": "◈",
+      "color": "cyan"
+    },
+    {
+      "label": "less.tech",
+      "icon": "◉",
+      "color": "cyan"
+    },
+    {
+      "label": "HubSpot",
+      "icon": "⬡",
+      "color": "magenta"
+    },
+    {
+      "label": "Shopify",
+      "icon": "◆",
+      "color": "green"
+    },
+    {
+      "label": "OpenAI / Claude",
+      "icon": "◎",
+      "color": "purple"
+    },
+    {
+      "label": "Moloni",
+      "icon": "⬟",
+      "color": "magenta"
+    },
+    {
+      "label": "Google Sheets",
+      "icon": "▣",
+      "color": "green"
+    },
+    {
+      "label": "Webhooks & APIs",
+      "icon": "⚡",
+      "color": "cyan"
+    }
+  ],
+  "cv": {
+    "filename": "cv.pdf",
+    "uploadedAt": "2026-04-27T09:49:42.816Z"
+  },
+  "contact": {
+    "heading": "Let's connect",
+    "subtext": "Available for freelance projects and collaboration. Reach out through any of these channels.",
+    "links": [
+      {
+        "label": "Email",
+        "href": "mailto:rfm2394@gmail.com",
+        "icon": "✉"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://linkedin.com/in/",
+        "icon": "in"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/",
+        "icon": "◎"
+      }
+    ]
+  }
+}
