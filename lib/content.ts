@@ -29,6 +29,7 @@ export async function saveContent(content: Content): Promise<void> {
     await put(CONTENT_BLOB, JSON.stringify(content, null, 2), {
       access: "public",
       addRandomSuffix: false,
+      allowOverwrite: true,
       contentType: "application/json",
     });
     return;
