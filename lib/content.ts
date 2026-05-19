@@ -1,19 +1,18 @@
 import type { Content } from "@/types/content";
 
-const KV_KEY = "portfolio:content";
-
-function hasKv() {
-  return !!(process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN);
-}
+const CONTENT_BLOB = "content.json";
 
 export async function getContent(): Promise<Content> {
-  if (hasKv()) {
-    const { kv } = await import("@vercel/kv");
-    const stored = await kv.get<Content>(KV_KEY);
-    if (stored) return stored;
-    // First deploy: seed KV from the bundled JSON
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    const { list } = await import("@vercel/blob");
+    const { blobs } = await list({ prefix: CONTENT_BLOB });
+    if (blobs.length > 0) {
+      const res = await fetch(blobs[0].url, { cache: "no-store" });
+      return res.json() as Promise<Content>;
+    }
+    // First deploy: seed blob from the bundled JSON
     const seed = (await import("@/data/content.json")).default as Content;
-    await kv.set(KV_KEY, seed);
+    await saveContent(seed);
     return seed;
   }
 
@@ -25,9 +24,13 @@ export async function getContent(): Promise<Content> {
 }
 
 export async function saveContent(content: Content): Promise<void> {
-  if (hasKv()) {
-    const { kv } = await import("@vercel/kv");
-    await kv.set(KV_KEY, content);
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    const { put } = await import("@vercel/blob");
+    await put(CONTENT_BLOB, JSON.stringify(content, null, 2), {
+      access: "public",
+      addRandomSuffix: false,
+      contentType: "application/json",
+    });
     return;
   }
 
