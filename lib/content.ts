@@ -1,13 +1,19 @@
+import { unstable_noStore as noStore } from "next/cache";
 import type { Content } from "@/types/content";
 
 const CONTENT_BLOB = "content.json";
 
 export async function getContent(): Promise<Content> {
+  noStore();
+
   if (process.env.BLOB_READ_WRITE_TOKEN) {
     const { list } = await import("@vercel/blob");
-    const { blobs } = await list({ prefix: CONTENT_BLOB });
+    const { blobs } = await list({ prefix: CONTENT_BLOB, limit: 1 });
     if (blobs.length > 0) {
-      const res = await fetch(`${blobs[0].url}?t=${Date.now()}`, { cache: "no-store" });
+      const res = await fetch(blobs[0].url, {
+        cache: "no-store",
+        headers: { "Cache-Control": "no-cache" },
+      });
       return res.json() as Promise<Content>;
     }
     // First deploy: seed blob from the bundled JSON
