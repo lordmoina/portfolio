@@ -17,7 +17,7 @@ export async function POST(request: Request) {
 
     if (process.env.BLOB_READ_WRITE_TOKEN) {
       const { put } = await import("@vercel/blob");
-      const blob = await put("cv.pdf", file, { access: "public", addRandomSuffix: false });
+      const blob = await put("cv.pdf", file, { access: "public", addRandomSuffix: false, allowOverwrite: true });
       cvUrl = blob.url;
     } else {
       // Local dev: write to filesystem

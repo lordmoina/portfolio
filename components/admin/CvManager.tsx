@@ -96,9 +96,8 @@ export default function CvManager({ initialContent }: CvManagerProps) {
             )}
             <div className="pt-2">
               <a
-                href="/cv/cv.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/api/cv"
+                download="cv.pdf"
                 className="inline-flex items-center gap-2 font-['Share_Tech_Mono'] text-xs text-[#00c8ff] hover:text-[#00c8ff]/70 transition-colors tracking-widest"
               >
                 ↓ DOWNLOAD CURRENT CV

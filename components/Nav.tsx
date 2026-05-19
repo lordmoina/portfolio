@@ -50,8 +50,8 @@ export default function Nav({ nav, cv }: NavProps) {
 
           {showCv && (
             <a
-              href="/cv/cv.pdf"
-              download
+              href="/api/cv"
+              download="cv.pdf"
               className="font-['Share_Tech_Mono'] text-xs px-3 py-1.5 border border-[#00c8ff]/40 text-[#00c8ff] rounded-sm hover:bg-[#00c8ff]/10 hover:border-[#00c8ff]/70 transition-all duration-200 tracking-widest"
             >
               ↓ CV
