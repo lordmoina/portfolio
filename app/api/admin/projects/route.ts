@@ -5,7 +5,7 @@ import type { Project } from "@/types/content";
 export async function POST(request: Request) {
   try {
     const { projects } = (await request.json()) as { projects: Project[] };
-    const content = getContent();
+    const content = await getContent();
     content.projects = projects;
     await saveContent(content);
     return NextResponse.json({ success: true });

@@ -3,8 +3,8 @@ export const dynamic = "force-dynamic";
 import { getContent } from "@/lib/content";
 import GeneralForm from "@/components/admin/GeneralForm";
 
-export default function GeneralPage() {
-  const content = getContent();
+export default async function GeneralPage() {
+  const content = await getContent();
   return (
     <div className="p-8 max-w-3xl">
       <div className="mb-8">

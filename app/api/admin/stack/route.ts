@@ -5,7 +5,7 @@ import type { StackItem } from "@/types/content";
 export async function POST(request: Request) {
   try {
     const { stack } = (await request.json()) as { stack: StackItem[] };
-    const content = getContent();
+    const content = await getContent();
     content.stack = stack;
     await saveContent(content);
     return NextResponse.json({ success: true });

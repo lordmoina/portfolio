@@ -3,8 +3,8 @@ export const dynamic = "force-dynamic";
 import { getContent } from "@/lib/content";
 import CvManager from "@/components/admin/CvManager";
 
-export default function CvPage() {
-  const content = getContent();
+export default async function CvPage() {
+  const content = await getContent();
   return (
     <div className="p-8 max-w-2xl">
       <div className="mb-8">

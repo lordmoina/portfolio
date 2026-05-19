@@ -3,7 +3,7 @@ export const dynamic = "force-dynamic";
 import { getContent } from "@/lib/content";
 import ProjectsClient from "@/components/ProjectsClient";
 
-export default function Projects() {
-  const content = getContent();
+export default async function Projects() {
+  const content = await getContent();
   return <ProjectsClient content={content} />;
 }

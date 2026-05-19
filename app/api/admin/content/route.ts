@@ -12,7 +12,7 @@ export async function POST(request: Request) {
       footer: FooterContent;
     };
 
-    const content = getContent();
+    const content = await getContent();
     content.nav = nav;
     content.hero = hero;
     content.about = about;

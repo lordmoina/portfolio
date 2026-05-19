@@ -3,8 +3,8 @@ export const dynamic = "force-dynamic";
 import { getContent } from "@/lib/content";
 import StackManager from "@/components/admin/StackManager";
 
-export default function StackPage() {
-  const content = getContent();
+export default async function StackPage() {
+  const content = await getContent();
   return (
     <div className="p-8 max-w-2xl">
       <div className="mb-8">
