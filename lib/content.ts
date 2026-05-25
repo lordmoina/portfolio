@@ -14,7 +14,20 @@ export async function getContent(): Promise<Content> {
         cache: "no-store",
         headers: { "Cache-Control": "no-cache" },
       });
-      return res.json() as Promise<Content>;
+      const content = await res.json() as Content;
+
+      // Schema migration: if any project is missing `category`, the blob is
+      // stale — re-seed from the bundled JSON so the new fields land cleanly.
+      const needsMigration =
+        content.projects.length > 0 &&
+        content.projects.some((p) => !("category" in p));
+      if (needsMigration) {
+        const seed = (await import("@/data/content.json")).default as Content;
+        await saveContent(seed);
+        return seed;
+      }
+
+      return content;
     }
     // First deploy: seed blob from the bundled JSON
     const seed = (await import("@/data/content.json")).default as Content;
