@@ -26,6 +26,7 @@ const blankProject = (): Omit<Project, "id"> => ({
   tags: [],
   tagColor: "cyan",
   stack: [],
+  category: "",
   order: 0,
 });
 
@@ -300,6 +301,22 @@ function ProjectForm({
               ))}
             </select>
           </div>
+        </div>
+        <div>
+          <label className={labelCls}>CATEGORY</label>
+          <select
+            className={inputCls}
+            value={data.category}
+            onChange={(e) => onChange("category", e.target.value)}
+          >
+            <option value="">— select section —</option>
+            <option value="AI Agents & LLM Workflows">AI Agents &amp; LLM Workflows</option>
+            <option value="Growth & CRM Automation">Growth &amp; CRM Automation</option>
+            <option value="Document & PDF Automation">Document &amp; PDF Automation</option>
+            <option value="E-commerce & Order Operations">E-commerce &amp; Order Operations</option>
+            <option value="Internal Tools & Forms">Internal Tools &amp; Forms</option>
+            <option value="Data Pipelines & Integrations">Data Pipelines &amp; Integrations</option>
+          </select>
         </div>
         <div>
           <label className={labelCls}>STACK (comma-separated)</label>
