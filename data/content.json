@@ -48,111 +48,404 @@
   },
   "projects": [
     {
-      "id": "1",
-      "title": "Automated Invoicing Pipeline",
-      "description": "End-to-end invoicing automation connecting Moloni and HubSpot. Automatically generates PDF invoices on deal close, syncs order data, and triggers delivery notifications — zero manual steps.",
-      "tags": [
-        "n8n",
-        "Moloni",
-        "HubSpot"
-      ],
+      "id": "proj-001",
+      "title": "Multi-Tool AI Agent (SUPER AI)",
+      "description": "Conversational agent powered by Claude Opus 4.6 with Gmail and Microsoft SQL Server exposed as tools, plus persistent memory. Lets non-technical operators query the operational database and send emails in natural language.",
+      "tags": ["AI", "AGENT", "CLAUDE"],
       "tagColor": "cyan",
-      "stack": [
-        "n8n",
-        "Moloni",
-        "HubSpot",
-        "Webhooks"
-      ],
+      "stack": ["n8n", "Claude Opus 4.6", "MS SQL", "Gmail"],
+      "category": "AI Agents & LLM Workflows",
       "order": 0
     },
     {
-      "id": "2",
-      "title": "AI-Powered Lead Enrichment",
-      "description": "Automatic lead classification and scoring pipeline using GPT-4o via n8n. Enriches incoming leads with company data, scores intent, and routes high-value prospects to the right sales rep.",
-      "tags": [
-        "AI",
-        "n8n",
-        "CRM"
-      ],
+      "id": "proj-002",
+      "title": "SQL Agent with Memory",
+      "description": "LLM agent with conversational memory connected directly to a SQL database. Generates queries, executes them, and explains results — built as a foundation for natural-language data exploration.",
+      "tags": ["AI", "SQL", "AGENT"],
       "tagColor": "magenta",
-      "stack": [
-        "n8n",
-        "OpenAI",
-        "HubSpot",
-        "Google Sheets"
-      ],
+      "stack": ["n8n", "OpenAI", "SQL", "LangChain"],
+      "category": "AI Agents & LLM Workflows",
       "order": 1
     },
     {
-      "id": "3",
-      "title": "Database Cleaning with less.tech",
-      "description": "Data normalization and deduplication workflow for e-commerce and reporting. Standardizes product data, merges duplicate records, and outputs clean datasets ready for analytics.",
-      "tags": [
-        "less.tech",
-        "Shopify",
-        "Data"
-      ],
+      "id": "proj-003",
+      "title": "ERP AI Chatbot for Odoo",
+      "description": "Natural-language interface to the Odoo sales module. Users ask about sales data and the agent translates intent into ERP queries, returning structured answers.",
+      "tags": ["AI", "ERP", "CHATBOT"],
       "tagColor": "purple",
-      "stack": [
-        "less.tech",
-        "Google Sheets",
-        "Shopify",
-        "Webhooks"
-      ],
+      "stack": ["n8n", "OpenAI", "Odoo", "SQL"],
+      "category": "AI Agents & LLM Workflows",
       "order": 2
     },
     {
-      "id": "4",
-      "title": "Shopify → CRM Sync",
-      "description": "Real-time synchronization between Shopify orders and HubSpot contacts. Creates and updates CRM records on every purchase, with lifecycle stage management and custom property mapping.",
-      "tags": [
-        "E-COMMERCE",
-        "CRM",
-        "SYNC"
-      ],
+      "id": "proj-004",
+      "title": "Chat with PostgreSQL Database",
+      "description": "AI-powered Q&A layer over a Postgres database. Schema-aware prompting lets non-technical users get answers without writing SQL.",
+      "tags": ["AI", "POSTGRES", "RAG"],
       "tagColor": "cyan",
-      "stack": [
-        "n8n",
-        "Shopify",
-        "HubSpot"
-      ],
+      "stack": ["n8n", "OpenAI", "PostgreSQL"],
+      "category": "AI Agents & LLM Workflows",
       "order": 3
     },
     {
-      "id": "5",
-      "title": "AI Content Repurposing Flow",
-      "description": "Takes a single long-form article and automatically generates social posts, email sequences, and SEO meta tags using Claude. Publishes directly to connected platforms.",
-      "tags": [
-        "AI",
-        "CONTENT",
-        "CLAUDE"
-      ],
+      "id": "proj-005",
+      "title": "AI Data Analysis & Reporting",
+      "description": "Pulls data from MySQL and Google Sheets, runs AI-driven analysis and visualization, generates a PDF report, and emails it out. End-to-end self-service analytics for ops.",
+      "tags": ["AI", "DATA", "REPORTING"],
       "tagColor": "magenta",
-      "stack": [
-        "n8n",
-        "Claude API",
-        "Notion",
-        "Webhooks"
-      ],
+      "stack": ["n8n", "MySQL", "Google Sheets", "Gmail", "PDF"],
+      "category": "AI Agents & LLM Workflows",
       "order": 4
     },
     {
-      "id": "6",
-      "title": "Multi-Store Inventory Alert",
-      "description": "Monitors stock levels across multiple Shopify stores and fires Slack/email alerts when thresholds are breached. Auto-creates purchase orders in the ERP via webhook.",
-      "tags": [
-        "INVENTORY",
-        "ALERTS",
-        "MULTI-STORE"
-      ],
+      "id": "proj-006",
+      "title": "Document Generation Agent (Create CPO)",
+      "description": "Form input triggers a LangChain LLM chain that generates a structured Customer Purchase Order document, exports it to xlsx, and delivers it via email. Strict schema, low temperature — deterministic output.",
+      "tags": ["AI", "FORMS", "CONTENT"],
       "tagColor": "purple",
-      "stack": [
-        "n8n",
-        "Shopify",
-        "Slack",
-        "Google Sheets"
-      ],
+      "stack": ["n8n", "LangChain", "GPT-4.1", "Form Trigger", "xlsx"],
+      "category": "AI Agents & LLM Workflows",
       "order": 5
+    },
+    {
+      "id": "proj-007",
+      "title": "HubSpot AI Enrichment Loop",
+      "description": "Polls HubSpot every 5 minutes for new Contacts and Companies, sends them to Claude for enrichment (firmographics, role inference, missing fields), and writes structured data back via REST API. Strict JSON schema — no manual review.",
+      "tags": ["AI", "n8n", "HUBSPOT"],
+      "tagColor": "cyan",
+      "stack": ["n8n", "Anthropic Claude", "HubSpot API", "JSON Schema"],
+      "category": "Growth & CRM Automation",
+      "order": 6
+    },
+    {
+      "id": "proj-008",
+      "title": "AI-Powered Lead Pipeline",
+      "description": "Form submission → GPT-5.1 generates a personalized intro from a Google Docs template → lead is upserted into HubSpot with AI context attached as a Note → Gmail follow-up fires. Second GPT pass scores the lead before the CRM write.",
+      "tags": ["AI", "OUTBOUND", "CRM"],
+      "tagColor": "magenta",
+      "stack": ["n8n", "OpenAI GPT-5.1", "HubSpot", "Gmail", "Google Docs"],
+      "category": "Growth & CRM Automation",
+      "order": 7
+    },
+    {
+      "id": "proj-009",
+      "title": "Leads Analyst — Form to CRM",
+      "description": "Captures inbound leads via form, enriches with AI research, runs a scoring model against ICP criteria, ranks the lead, and routes to HubSpot with full context. Cuts the manual qualification step out of the funnel.",
+      "tags": ["AI", "SCORING", "LEADS"],
+      "tagColor": "purple",
+      "stack": ["n8n", "OpenAI", "HubSpot", "Forms"],
+      "category": "Growth & CRM Automation",
+      "order": 8
+    },
+    {
+      "id": "proj-010",
+      "title": "Outbound Prospection Agent",
+      "description": "Lightweight outbound engine: form input triggers AI-driven prospect research, generates a personalized cold email, and logs the contact to Sheets. Designed to be fast and disposable per campaign.",
+      "tags": ["AI", "PROSPECTING", "OUTBOUND"],
+      "tagColor": "cyan",
+      "stack": ["n8n", "OpenAI", "Gmail", "Google Sheets"],
+      "category": "Growth & CRM Automation",
+      "order": 9
+    },
+    {
+      "id": "proj-011",
+      "title": "Competitor Analysis & Scoring",
+      "description": "Automated competitor intelligence: scrapes target sites, runs AI-driven analysis across product, pricing, and positioning axes, then assigns a composite score. Outputs structured comparison data to Sheets.",
+      "tags": ["AI", "COMPETITORS", "INTEL"],
+      "tagColor": "magenta",
+      "stack": ["n8n", "OpenAI", "Google Sheets", "HTTP Scraping"],
+      "category": "Growth & CRM Automation",
+      "order": 10
+    },
+    {
+      "id": "proj-012",
+      "title": "Asana → HubSpot Sync",
+      "description": "Bi-directional sync between Asana project tracking and HubSpot deals. Pulls portfolio items, extracts shipment data from task comments, and updates deal properties — keeping sales and ops aligned.",
+      "tags": ["ASANA", "CRM", "SYNC"],
+      "tagColor": "purple",
+      "stack": ["n8n", "Asana", "HubSpot", "Google Sheets"],
+      "category": "Growth & CRM Automation",
+      "order": 11
+    },
+    {
+      "id": "proj-013",
+      "title": "Notion Meetings → HubSpot",
+      "description": "Pulls AI-generated meeting notes, summaries, and transcripts from Notion, parses the block structure, and creates structured Engagement Notes on the matched HubSpot contact. Marks each meeting synced to prevent duplicates.",
+      "tags": ["NOTION", "HUBSPOT", "MEETINGS"],
+      "tagColor": "cyan",
+      "stack": ["n8n", "Notion API", "HubSpot"],
+      "category": "Growth & CRM Automation",
+      "order": 12
+    },
+    {
+      "id": "proj-014",
+      "title": "Calendar + Notion → HubSpot Meetings",
+      "description": "Cross-references Google Calendar events with Notion meeting pages and creates HubSpot Meeting engagements with combined context. Skips events where no HubSpot contact match exists.",
+      "tags": ["CALENDAR", "NOTION", "HUBSPOT"],
+      "tagColor": "magenta",
+      "stack": ["n8n", "Google Calendar", "Notion", "HubSpot"],
+      "category": "Growth & CRM Automation",
+      "order": 13
+    },
+    {
+      "id": "proj-015",
+      "title": "HubSpot Stripe Link Sender",
+      "description": "Generates Stripe payment links and emails them directly to HubSpot contacts. Streamlines the close-to-collect step for sales without manual link generation.",
+      "tags": ["STRIPE", "HUBSPOT", "BILLING"],
+      "tagColor": "purple",
+      "stack": ["n8n", "HubSpot", "Stripe", "Gmail"],
+      "category": "Growth & CRM Automation",
+      "order": 14
+    },
+    {
+      "id": "proj-016",
+      "title": "Supplier Invoice Ingestion",
+      "description": "Parses PDFs from multiple suppliers with different layouts and number formats (European comma decimals, layout drift) into structured line-item data pushed to Google Sheets. Per-supplier parsers built from real production edge cases.",
+      "tags": ["PDF", "AI", "DATA"],
+      "tagColor": "cyan",
+      "stack": ["n8n", "PDF Parsing", "Google Sheets", "JavaScript"],
+      "category": "Document & PDF Automation",
+      "order": 15
+    },
+    {
+      "id": "proj-017",
+      "title": "Scheduled PDF Invoice Scanner",
+      "description": "Watches a Google Drive folder on a schedule, extracts structured data from new invoice PDFs, and appends to Sheets — turning a manual filing process into a hands-off pipeline.",
+      "tags": ["PDF", "DRIVE", "AUTOMATION"],
+      "tagColor": "magenta",
+      "stack": ["n8n", "Google Drive", "Google Sheets", "PDF"],
+      "category": "Document & PDF Automation",
+      "order": 16
+    },
+    {
+      "id": "proj-018",
+      "title": "DHL Transport Invoice Importer",
+      "description": "Batch-imports DHL transport invoice CSVs, normalizes shipment records, and consolidates them into a single operational sheet for finance reconciliation.",
+      "tags": ["TRANSPORT", "CSV", "BATCH"],
+      "tagColor": "purple",
+      "stack": ["n8n", "CSV", "DHL", "Google Sheets"],
+      "category": "Document & PDF Automation",
+      "order": 17
+    },
+    {
+      "id": "proj-019",
+      "title": "Moloni Invoice Automation Suite",
+      "description": "A family of workflows on top of the Moloni billing API: send invoices to clients and sample shops, generate credit notes, and orchestrate the full invoicing lifecycle with PDF generation and email delivery.",
+      "tags": ["MOLONI", "INVOICING", "PDF"],
+      "tagColor": "cyan",
+      "stack": ["n8n", "Moloni", "Gmail", "Google Sheets"],
+      "category": "Document & PDF Automation",
+      "order": 18
+    },
+    {
+      "id": "proj-020",
+      "title": "Brand Order Scrapers (Stussy, Supreme)",
+      "description": "Web scrapers that pull live order and product data from brand portals (Stussy, Supreme) into structured Sheets. Each scraper handles its own auth flow and pagination logic.",
+      "tags": ["SHOPIFY", "SCRAPER", "ORDERS"],
+      "tagColor": "magenta",
+      "stack": ["n8n", "HTTP Scraping", "Google Sheets"],
+      "category": "E-commerce & Order Operations",
+      "order": 19
+    },
+    {
+      "id": "proj-021",
+      "title": "Assembly Order Management System",
+      "description": "Multi-workflow system that ingests orders from the Rovo Assembly API, syncs detailed order data, generates outbound communications, and pushes status updates to HubSpot deals. Handles pagination, retries, and deduplication.",
+      "tags": ["ASSEMBLY", "ORDERS", "SYNC"],
+      "tagColor": "purple",
+      "stack": ["n8n", "REST API", "HubSpot", "Google Sheets"],
+      "category": "E-commerce & Order Operations",
+      "order": 20
+    },
+    {
+      "id": "proj-022",
+      "title": "Shopify → HubSpot Order Sync",
+      "description": "Real-time synchronization between Shopify orders and HubSpot contacts. Creates and updates CRM records on every purchase, with lifecycle stage management and custom property mapping.",
+      "tags": ["SHOPIFY", "CRM", "SYNC"],
+      "tagColor": "cyan",
+      "stack": ["n8n", "Shopify", "HubSpot"],
+      "category": "E-commerce & Order Operations",
+      "order": 21
+    },
+    {
+      "id": "proj-023",
+      "title": "ShippyPro Integration",
+      "description": "Integrates ShippyPro shipping data into the operational stack — pulling tracking information and delivery status into the central order workflow.",
+      "tags": ["SHIPPING", "OPS"],
+      "tagColor": "magenta",
+      "stack": ["n8n", "ShippyPro", "Google Sheets"],
+      "category": "E-commerce & Order Operations",
+      "order": 22
+    },
+    {
+      "id": "proj-024",
+      "title": "Stripe Payment Sync",
+      "description": "Pulls Stripe transaction data into operational sheets for reconciliation. Maps payments to internal records and surfaces discrepancies.",
+      "tags": ["STRIPE", "PAYMENTS"],
+      "tagColor": "purple",
+      "stack": ["n8n", "Stripe", "Google Sheets"],
+      "category": "E-commerce & Order Operations",
+      "order": 23
+    },
+    {
+      "id": "proj-025",
+      "title": "Stock Request Form",
+      "description": "Internal request flow with unique request IDs and anti-duplicate submission logic. Form submission creates a Notion record and fires Gmail notifications — replacing an informal back-and-forth process.",
+      "tags": ["NOTION", "GMAIL", "REQUEST"],
+      "tagColor": "cyan",
+      "stack": ["n8n", "Notion", "Gmail", "Form Trigger"],
+      "category": "Internal Tools & Forms",
+      "order": 24
+    },
+    {
+      "id": "proj-026",
+      "title": "Rovo Quality Control Form",
+      "description": "Multi-step QC inspection form with 20+ conditional fields, branching logic per inspection type, and structured data capture to Sheets. Used daily by quality controllers on the production floor.",
+      "tags": ["QC", "INSPECTION", "FORMS"],
+      "tagColor": "magenta",
+      "stack": ["n8n", "Form Trigger", "Google Sheets"],
+      "category": "Internal Tools & Forms",
+      "order": 25
+    },
+    {
+      "id": "proj-027",
+      "title": "Client Onboarding Scheduler",
+      "description": "Form-driven onboarding flow that orchestrates Google Calendar invites across multiple stakeholders, handling 30+ scheduling steps with branching logic per onboarding type.",
+      "tags": ["ONBOARDING", "CALENDAR"],
+      "tagColor": "purple",
+      "stack": ["n8n", "Form Trigger", "Google Calendar"],
+      "category": "Internal Tools & Forms",
+      "order": 26
+    },
+    {
+      "id": "proj-028",
+      "title": "Collection Request Webhook API",
+      "description": "Webhook-based GET/POST API for collection requests, with Notion as the data backend. Lets external systems create and retrieve collection records programmatically.",
+      "tags": ["COLLECTIONS", "WEBHOOK"],
+      "tagColor": "cyan",
+      "stack": ["n8n", "Webhook", "Notion"],
+      "category": "Internal Tools & Forms",
+      "order": 27
+    },
+    {
+      "id": "proj-029",
+      "title": "Transport Booking System",
+      "description": "Multi-channel transport booking: Typeform and custom form ingestion, Notion as data store, automated Gmail notifications to logistics partners. Extracts booking details from Notion into Sheets for batch operations.",
+      "tags": ["TRANSPORT", "BOOKING"],
+      "tagColor": "magenta",
+      "stack": ["n8n", "Typeform", "Notion", "Gmail"],
+      "category": "Internal Tools & Forms",
+      "order": 28
+    },
+    {
+      "id": "proj-030",
+      "title": "PHC Client Creation",
+      "description": "Form-driven flow that creates new finance clients in the PHC ERP via direct SQL operations, with email confirmation and validation guardrails.",
+      "tags": ["PHC", "FINANCE", "ERP"],
+      "tagColor": "purple",
+      "stack": ["n8n", "PHC ERP", "SQL", "Gmail"],
+      "category": "Internal Tools & Forms",
+      "order": 29
+    },
+    {
+      "id": "proj-031",
+      "title": "IT Platform User Provisioning",
+      "description": "Centralizes user provisioning data across internal platforms into Sheets, giving IT a single view of access state for audits and offboarding.",
+      "tags": ["USERS", "IT", "OPS"],
+      "tagColor": "cyan",
+      "stack": ["n8n", "Google Sheets", "IT Ops"],
+      "category": "Internal Tools & Forms",
+      "order": 30
+    },
+    {
+      "id": "proj-032",
+      "title": "Supplier Email Automation",
+      "description": "180-node orchestration handling supplier communication across 12+ vendors: scheduled emails, document attachments from Drive, dataTable lookups, conditional routing per supplier. The backbone of supplier ops.",
+      "tags": ["SUPPLIERS", "GMAIL", "OPS"],
+      "tagColor": "magenta",
+      "stack": ["n8n", "Gmail", "Drive", "dataTable"],
+      "category": "Data Pipelines & Integrations",
+      "order": 31
+    },
+    {
+      "id": "proj-033",
+      "title": "Transaction Email Engine",
+      "description": "110-node workflow generating transactional emails directly from a SQL Server database, with templated HTML, conditional content blocks, and Asana ticket creation on failures.",
+      "tags": ["TRANSACTIONS", "SQL", "EMAIL"],
+      "tagColor": "purple",
+      "stack": ["n8n", "MS SQL", "Gmail", "Asana"],
+      "category": "Data Pipelines & Integrations",
+      "order": 32
+    },
+    {
+      "id": "proj-034",
+      "title": "HubSpot ↔ Sheets Sync",
+      "description": "Pull Companies and Deals from HubSpot into Sheets on a schedule, with date-windowed sync logic. Powers operational dashboards and offline analysis.",
+      "tags": ["HUBSPOT", "SHEETS", "SYNC"],
+      "tagColor": "cyan",
+      "stack": ["n8n", "HubSpot", "Google Sheets"],
+      "category": "Data Pipelines & Integrations",
+      "order": 33
+    },
+    {
+      "id": "proj-035",
+      "title": "HubSpot Pipeline Days Counter",
+      "description": "Reads pipeline stage data from SQL, calculates time-in-stage metrics, and writes the results back to dataTable. Surfaces deals stuck in the funnel.",
+      "tags": ["HUBSPOT", "METRICS"],
+      "tagColor": "magenta",
+      "stack": ["n8n", "MS SQL", "dataTable"],
+      "category": "Data Pipelines & Integrations",
+      "order": 34
+    },
+    {
+      "id": "proj-036",
+      "title": "Notion Transport Bookings Extractor",
+      "description": "Extracts transport booking data from Notion databases, normalizes the records, and pushes them into Sheets for downstream operational use.",
+      "tags": ["NOTION", "TRANSPORT", "EXTRACT"],
+      "tagColor": "purple",
+      "stack": ["n8n", "Notion", "Google Sheets"],
+      "category": "Data Pipelines & Integrations",
+      "order": 35
+    },
+    {
+      "id": "proj-037",
+      "title": "Security Checker (Links & Files)",
+      "description": "Automated link and file safety checker for incoming content. Scans URLs and attachments, flags suspicious items, and surfaces risk for review.",
+      "tags": ["SECURITY", "ALERTS"],
+      "tagColor": "cyan",
+      "stack": ["n8n", "Security", "HTTP"],
+      "category": "Data Pipelines & Integrations",
+      "order": 36
+    },
+    {
+      "id": "proj-038",
+      "title": "People Count Tracker",
+      "description": "Pulls people-counting data from SQL and feeds it into operational sheets for footfall analytics.",
+      "tags": ["PEOPLE", "ANALYTICS"],
+      "tagColor": "magenta",
+      "stack": ["n8n", "MS SQL", "Google Sheets"],
+      "category": "Data Pipelines & Integrations",
+      "order": 37
+    },
+    {
+      "id": "proj-039",
+      "title": "n8n Workflows Backup",
+      "description": "Self-hosted infrastructure hardening: scheduled backup of all n8n workflows to Google Drive. Versioned, automated, recoverable.",
+      "tags": ["BACKUP", "INFRA"],
+      "tagColor": "purple",
+      "stack": ["n8n", "Google Drive", "Backup"],
+      "category": "Data Pipelines & Integrations",
+      "order": 38
+    },
+    {
+      "id": "proj-040",
+      "title": "n8n Error Notifications",
+      "description": "Centralized error notification system across all production workflows. Failures surface immediately via Gmail with full context for debugging.",
+      "tags": ["ERROR", "MONITORING"],
+      "tagColor": "cyan",
+      "stack": ["n8n", "Gmail", "Monitoring"],
+      "category": "Data Pipelines & Integrations",
+      "order": 39
     }
   ],
   "stack": [

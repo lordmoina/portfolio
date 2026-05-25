@@ -37,6 +37,7 @@ export interface Project {
   tags: string[];
   tagColor: "cyan" | "magenta" | "purple";
   stack: string[];
+  category: string;
   order: number;
 }
 
