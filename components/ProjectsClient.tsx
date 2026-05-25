@@ -60,10 +60,17 @@ export default function ProjectsClient({ content }: { content: Content }) {
 
   const sorted = [...content.projects].sort((a, b) => a.order - b.order);
 
-  const grouped = CATEGORIES.map((cat) => ({
+  const grouped: { name: string; projects: Project[] }[] = CATEGORIES.map((cat) => ({
     name: cat,
-    projects: sorted.filter((p) => p.category === cat),
+    projects: sorted.filter((p) => (p.category ?? "") === cat),
   })).filter((g) => g.projects.length > 0);
+
+  // Catch-all: projects with no / unknown category still render
+  const categorised = new Set(CATEGORIES as readonly string[]);
+  const orphans = sorted.filter((p) => !p.category || !categorised.has(p.category));
+  if (orphans.length > 0) {
+    grouped.push({ name: "Other", projects: orphans });
+  }
 
   const visibleGroups = showAll ? grouped : grouped.slice(0, FEATURED_SECTIONS);
   const hiddenCount = sorted.length - visibleGroups.reduce((acc, g) => acc + g.projects.length, 0);
